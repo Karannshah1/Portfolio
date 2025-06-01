@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -29,13 +30,16 @@ export const Navbar = () => {
         isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
       )}
     >
+
+    
+
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center"
           href="#hero"
         >
           <span className="relative z-10">
-            <span className="text-glow text-foreground"> PedroTech </span>{" "}
+            <span className="text-glow text-foreground"> Karan Shah</span>{" "}
             Portfolio
           </span>
         </a>
@@ -52,16 +56,31 @@ export const Navbar = () => {
             </a>
           ))}
         </div>
+        
+        {/* <div className="flex items-center space-x-4">
+          <ThemeToggle />
+        </div> */}
 
         {/* mobile nav */}
 
-        <button
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="md:hidden p-2 text-foreground z-50"
-          aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}{" "}
-        </button>
+       
+
+       
+          <div className="flex items-center space-x-4">
+            <div className="max-sm:hidden">
+          <ThemeToggle />
+          </div>
+          <button
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+            className="md:hidden p-2 text-foreground z-50"
+            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
+
+        
+        
 
         <div
           className={cn(
@@ -83,9 +102,13 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
+            <ThemeToggle />
           </div>
         </div>
       </div>
     </nav>
   );
 };
+
+
+

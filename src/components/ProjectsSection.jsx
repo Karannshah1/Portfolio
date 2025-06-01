@@ -1,36 +1,50 @@
 import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
+
+
 const projects = [
   {
     id: 1,
-    title: "SaaS Landing Page",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
+    title: "Fashion Semantic Search",
+    description:
+      "Created a web scraping algorithm that extracts JSON data from 10,000+ fashion items from top sites. Built a site using BERT transformer for semantic search, achieving 60% accuracy.",
+    image: "/projects/fashion-search.png",
+    tags: ["Python", "BERT", "NLP", "Web Scraping"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/yourusername/fashion-semantic-search",
   },
   {
     id: 2,
-    title: "Orbit Analytics Dashboard",
+    title: "Network Path Optimiser",
     description:
-      "Interactive analytics dashboard with data visualization and filtering capabilities.",
-    image: "/projects/project2.png",
-    tags: ["TypeScript", "D3.js", "Next.js"],
+      "Optimized data flow using Dinic’s algorithm for max flow and Dijkstra’s for shortest path, ensuring efficient data routing.",
+    image: "/projects/network-optimizer.png",
+    tags: ["C++", "DSA", "Algorithms"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Karannshah1/fashion-similarity-search",
   },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "Pulsar Star Recognition",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
+      "Applied Decision Tree, Naive Bayes, and SVM classifiers for pulsar star data, achieving 97.8% accuracy after processing and comparing various ML algorithms.",
+    image: "/projects/pulsar-star.png",
+    tags: ["Python", "Machine Learning", "SVM", "Scikit-learn"],
     demoUrl: "#",
-    githubUrl: "#",
+    githubUrl: "https://github.com/Karannshah1/pulsar_star_recognition",
+  },
+  {
+    id: 4,
+    title: "WhatsApp Chat Analyser",
+    description:
+      "Built a Python-based chat analyzer for WhatsApp data with time-based and user-based insights. Used NLTK for sentiment analysis of conversations.",
+    image: "/projects/whatsapp-analyzer.png",
+    tags: ["Python", "NLP", "NLTK"],
+    demoUrl: "#",
+    githubUrl: "https://github.com/Karannshah1/PSC_innovative",
   },
 ];
+
 
 export const ProjectsSection = () => {
   return (
@@ -100,7 +114,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
-            href="https://github.com/machadop1407"
+            href="https://github.com/Karannshah1/"
           >
             Check My Github <ArrowRight size={16} />
           </a>
