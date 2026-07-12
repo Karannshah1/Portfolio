@@ -80,7 +80,7 @@ export const ProjectsSection = () => {
                   {project.github && (
                     <a
                       href={project.github}
-                      className="p-2 bg-card border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] text-foreground hover:bg-primary hover:text-primary-foreground hover:translate-y-[-2px] transition-all"
+                      className="p-2 bg-zinc-800 border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] text-zinc-100 hover:bg-primary hover:text-primary-foreground hover:translate-y-[-2px] transition-all"
                       aria-label="GitHub Repository"
                     >
                       <Github size={20} />
@@ -89,7 +89,7 @@ export const ProjectsSection = () => {
                   {project.demo && (
                     <a
                       href={project.demo}
-                      className="p-2 bg-card border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] text-foreground hover:bg-primary hover:text-primary-foreground hover:translate-y-[-2px] transition-all"
+                      className="p-2 bg-zinc-800 border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] text-zinc-100 hover:bg-primary hover:text-primary-foreground hover:translate-y-[-2px] transition-all"
                       aria-label="Live Demo"
                     >
                       <ExternalLink size={20} />

@@ -116,7 +116,7 @@ export const SkillsSection = () => {
                 }`}
               >
                 <div className="flex items-center gap-4 mb-8 border-b-4 border-border pb-4">
-                  <div className="p-2 bg-primary text-primary-foreground border-2 border-border shadow-[2px_2px_0_0_var(--color-border)]">
+                  <div className="p-2 bg-zinc-800 text-zinc-100 border-2 border-border shadow-[2px_2px_0_0_var(--color-border)]">
                     {skillGroup.icon}
                   </div>
                   <h3 className="text-3xl font-black uppercase">

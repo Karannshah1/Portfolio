@@ -56,7 +56,7 @@ export const AboutSection = () => {
             className="md:col-span-5 flex flex-col gap-8"
           >
             <div className="brutal-card p-6 brutal-card-hover bg-secondary text-secondary-foreground flex items-start gap-4">
-              <div className="p-3 bg-card border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
+              <div className="p-3 bg-zinc-800 text-zinc-100 border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
                 <Code2 className="w-8 h-8" />
               </div>
               <div>
@@ -66,7 +66,7 @@ export const AboutSection = () => {
             </div>
 
             <div className="brutal-card p-6 brutal-card-hover bg-primary text-primary-foreground flex items-start gap-4">
-              <div className="p-3 bg-card text-foreground border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
+              <div className="p-3 bg-zinc-800 text-zinc-100 border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
                 <Brain className="w-8 h-8" />
               </div>
               <div>
@@ -76,7 +76,7 @@ export const AboutSection = () => {
             </div>
 
             <div className="brutal-card p-6 brutal-card-hover bg-card flex items-start gap-4">
-              <div className="p-3 bg-secondary border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
+              <div className="p-3 bg-zinc-800 text-zinc-100 border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
                 <Terminal className="w-8 h-8" />
               </div>
               <div>
