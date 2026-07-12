@@ -3,38 +3,38 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
-    title: "InsightFinder",
+    title: "GeoFleet – Location Platform",
     description:
-      "A comprehensive semantic search engine powered by BERT embeddings. It processes large document corpora and retrieves highly contextual results, significantly outperforming traditional keyword search.",
+      "Architected an event-driven microservices ecosystem utilizing Apache Kafka to decouple high-velocity ingress traffic. Engineered a high-throughput Driver Ingestion Service using gRPC.",
     image: "https://images.unsplash.com/photo-1518183214770-9c67425b7061?auto=format&fit=crop&q=80&w=800",
-    tags: ["Python", "PyTorch", "BERT", "React", "FastAPI"],
+    tags: ["Java 21", "Spring Boot", "Kafka", "gRPC"],
     github: "#",
     demo: "#",
   },
   {
-    title: "NetOptimize Engine",
+    title: "Fashion Semantic Search",
     description:
-      "A high-performance C++ routing engine that calculates optimal network paths for simulated logistics networks using Dinic's Algorithm and advanced graph structures.",
+      "Built a scalable web scraping pipeline to extract structured JSON data from 10,000+ items and integrated a BERT Large Language Model (LLM) to power context-based semantic search.",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
-    tags: ["C++", "Algorithms", "Graph Theory"],
+    tags: ["Python", "Flask", "BERT", "Web Scraping"],
     github: "#",
     demo: "#",
   },
   {
-    title: "Enterprise E-Commerce",
+    title: "MirrorLink – Screen Sharing",
     description:
-      "A scalable Spring Boot microservices-based e-commerce backend with a React frontend, featuring secure authentication, payment processing, and inventory management.",
+      "Built a real-time screen sharing web application using WebRTC to enable direct, high-speed video streaming between devices, backed by a Node.js and Socket.IO server.",
     image: "https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800",
-    tags: ["Java", "Spring Boot", "React", "PostgreSQL"],
+    tags: ["WebRTC", "React", "Node.js", "Socket.IO"],
     github: "#",
     demo: "#",
   },
   {
-    title: "EventFlow Platform",
+    title: "Algo Trading Sandbox",
     description:
-      "An event management platform built to handle ACES workshops and hackathons. Features attendee registration, QR code ticketing, and real-time dashboard analytics.",
+      "Developed a ready-to-deploy broker integration module for the Zerodha Kite API and implemented a breakout momentum algorithm (ORB, VWAP, ATR) with robust risk management.",
     image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800",
-    tags: ["Next.js", "Node.js", "MongoDB", "Tailwind"],
+    tags: ["Python", "Pandas", "NumPy", "WebSockets"],
     github: "#",
     demo: "#",
   },
