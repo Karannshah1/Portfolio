@@ -6,7 +6,7 @@ export const AboutSection = () => {
     <section id="about" className="py-24 px-4 bg-secondary/10 border-y-4 border-border">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-16">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 inline-block bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_#000]">
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 inline-block bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)]">
             About_Me
           </h2>
         </div>
@@ -56,7 +56,7 @@ export const AboutSection = () => {
             className="md:col-span-5 flex flex-col gap-8"
           >
             <div className="brutal-card p-6 brutal-card-hover bg-secondary text-secondary-foreground flex items-start gap-4">
-              <div className="p-3 bg-card border-2 border-border shadow-[4px_4px_0_0_#000]">
+              <div className="p-3 bg-card border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
                 <Code2 className="w-8 h-8" />
               </div>
               <div>
@@ -66,7 +66,7 @@ export const AboutSection = () => {
             </div>
 
             <div className="brutal-card p-6 brutal-card-hover bg-primary text-primary-foreground flex items-start gap-4">
-              <div className="p-3 bg-card text-foreground border-2 border-border shadow-[4px_4px_0_0_#000]">
+              <div className="p-3 bg-card text-foreground border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
                 <Brain className="w-8 h-8" />
               </div>
               <div>
@@ -76,7 +76,7 @@ export const AboutSection = () => {
             </div>
 
             <div className="brutal-card p-6 brutal-card-hover bg-card flex items-start gap-4">
-              <div className="p-3 bg-secondary border-2 border-border shadow-[4px_4px_0_0_#000]">
+              <div className="p-3 bg-secondary border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
                 <Terminal className="w-8 h-8" />
               </div>
               <div>

@@ -63,7 +63,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative hidden lg:block"
           >
-            <div className="aspect-square bg-secondary border-4 border-border shadow-[16px_16px_0_0_#000] relative z-10 overflow-hidden group p-8 flex flex-col justify-between">
+            <div className="aspect-square bg-secondary border-4 border-border shadow-[16px_16px_0_0_var(--color-border)] relative z-10 overflow-hidden group p-8 flex flex-col justify-between">
                 <div className="font-mono text-2xl font-bold">
                   {">"} whoami<br/>
                   Karan_Shah<br/>
@@ -77,8 +77,8 @@ export const HeroSection = () => {
                 </div>
             </div>
             {/* Decorative Brutalist Elements */}
-            <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-primary border-4 border-border shadow-[8px_8px_0_0_#000] rounded-full z-0"></div>
-            <div className="absolute -top-8 -left-8 w-32 h-8 bg-card border-4 border-border shadow-[4px_4px_0_0_#000] z-20 transform -rotate-12 flex items-center justify-center font-black">HELLO_WORLD</div>
+            <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-primary border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] rounded-full z-0"></div>
+            <div className="absolute -top-8 -left-8 w-32 h-8 bg-card border-4 border-border shadow-[4px_4px_0_0_var(--color-border)] z-20 transform -rotate-12 flex items-center justify-center font-black">HELLO_WORLD</div>
           </motion.div>
         </div>
       </div>

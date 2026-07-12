@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 
 const blogs = [
   {
+    title: "The Physics of N+1 and Cartesian Explosions",
+    excerpt: "Stop guessing about Hibernate performance and architect for physics.",
+    date: "July 12, 2026",
+    slug: "hibernate-performance"
+  },
+  {
     title: "Building a Semantic Search Engine with BERT",
     excerpt: "Explore how we moved beyond keyword search using transformers and vector databases.",
     date: "April 15, 2026",
@@ -28,7 +34,7 @@ export const BlogSection = () => {
     <section id="blog" className="py-24 px-4 bg-background border-t-4 border-border">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_#000] inline-block">
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
             Tech_Log
           </h2>
           <p className="font-mono text-lg font-bold md:w-1/3 text-right">
@@ -48,7 +54,7 @@ export const BlogSection = () => {
               <Link to={`/blog/${blog.slug}`} className="block h-full">
                 <article className="brutal-card brutal-card-hover h-full flex flex-col bg-card p-6">
                   <div className="flex justify-between items-start mb-6 border-b-4 border-border pb-4">
-                    <div className="p-3 bg-secondary border-2 border-border shadow-[4px_4px_0_0_#000]">
+                    <div className="p-3 bg-secondary border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
                       <BookOpen size={24} />
                     </div>
                     <span className="font-mono font-bold text-sm bg-primary text-primary-foreground px-2 py-1 border-2 border-border">

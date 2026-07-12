@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./ThemeToggle";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,7 +42,7 @@ export const Navbar = () => {
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -53,27 +54,33 @@ export const Navbar = () => {
             </a>
           ))}
           
-          <a
-            href="/#contact"
-            className="brutal-button !py-2 !px-4 text-sm"
-          >
-            Hire Me
-          </a>
+          <div className="pl-4 flex items-center space-x-4 border-l-2 border-border">
+            <ThemeToggle />
+            <a
+              href="/#contact"
+              className="brutal-button !py-2 !px-4 text-sm"
+            >
+              Hire Me
+            </a>
+          </div>
         </nav>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden border-2 border-border p-1 bg-secondary text-secondary-foreground shadow-[2px_2px_0_0_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center space-x-4">
+          <ThemeToggle />
+          <button
+            className="border-2 border-border p-1 bg-secondary text-secondary-foreground shadow-[2px_2px_0_0_var(--color-border)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b-4 border-border p-4 shadow-[0_4px_0_0_#000]">
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b-4 border-border p-4 shadow-[0_4px_0_0_var(--color-border)]">
           <nav className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a

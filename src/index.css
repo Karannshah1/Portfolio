@@ -2,19 +2,19 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-border: #000000;
-  --color-background: #fdfdfd;
-  --color-foreground: #000000;
+  --color-border: var(--border-color);
+  --color-background: var(--bg-color);
+  --color-foreground: var(--fg-color);
 
-  --color-primary: #ff5e5b;
-  --color-primary-foreground: #ffffff;
+  --color-primary: var(--primary-color);
+  --color-primary-foreground: var(--primary-fg);
   
-  --color-secondary: #ffed4a;
-  --color-secondary-foreground: #000000;
+  --color-secondary: var(--secondary-color);
+  --color-secondary-foreground: var(--secondary-fg);
 
-  --color-card: #ffffff;
-  --color-muted: #f3f4f6;
-  --color-muted-foreground: #4b5563;
+  --color-card: var(--card-color);
+  --color-muted: var(--muted-color);
+  --color-muted-foreground: var(--muted-fg);
   
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -22,30 +22,29 @@
 
 @layer base {
   :root {
-    --background: #fdfdfd;
-    --foreground: #000000;
-    --card: #ffffff;
-    --primary: #ff5e5b;
-    --primary-foreground: #ffffff;
-    --secondary: #ffed4a;
-    --secondary-foreground: #000000;
-    --border: #000000;
-    --muted: #f3f4f6;
-    --muted-foreground: #4b5563;
+    --bg-color: #fdfdfd;
+    --fg-color: #000000;
+    --card-color: #ffffff;
+    --primary-color: #00f0ff; /* Neon Cyan */
+    --primary-fg: #000000;
+    --secondary-color: #ffe600; /* Cyber Yellow */
+    --secondary-fg: #000000;
+    --border-color: #000000;
+    --muted-color: #f3f4f6;
+    --muted-fg: #4b5563;
   }
 
   .dark {
-    /* Optional dark mode, mostly high-contrast */
-    --background: #121212;
-    --foreground: #ffffff;
-    --card: #1e1e1e;
-    --primary: #ff5e5b;
-    --primary-foreground: #ffffff;
-    --secondary: #ffed4a;
-    --secondary-foreground: #000000;
-    --border: #ffffff;
-    --muted: #2d3748;
-    --muted-foreground: #a0aec0;
+    --bg-color: #0a0a0a;
+    --fg-color: #ffffff;
+    --card-color: #1a1a1a;
+    --primary-color: #00f0ff; /* Neon Cyan */
+    --primary-fg: #000000;
+    --secondary-color: #ffe600; /* Cyber Yellow */
+    --secondary-fg: #000000;
+    --border-color: #ffffff;
+    --muted-color: #262626;
+    --muted-fg: #a3a3a3;
   }
 
   * {
@@ -57,8 +56,8 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
-    background-image: radial-gradient(var(--border) 1px, transparent 1px);
+    @apply bg-background text-foreground font-sans transition-colors duration-300;
+    background-image: radial-gradient(var(--border-color) 1px, transparent 1px);
     background-size: 30px 30px;
     background-position: 0 0;
   }
@@ -77,31 +76,31 @@
 }
 
 @utility brutal-card {
-  @apply bg-card border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] rounded-none;
+  @apply bg-card border-2 border-border shadow-[4px_4px_0_0_var(--border-color)] rounded-none;
 }
 
 @utility brutal-card-hover {
-  @apply transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--color-border)];
+  @apply transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[8px_8px_0_0_var(--border-color)];
 }
 
 @utility brutal-button {
-  @apply px-6 py-3 bg-primary text-primary-foreground font-bold border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] 
-         transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_var(--color-border)]
-         active:translate-y-0 active:translate-x-0 active:shadow-[0_0_0_0_var(--color-border)];
+  @apply px-6 py-3 bg-primary text-primary-foreground font-bold border-2 border-border shadow-[4px_4px_0_0_var(--border-color)] 
+         transition-all duration-200 hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_var(--border-color)]
+         active:translate-y-0 active:translate-x-0 active:shadow-[0_0_0_0_var(--border-color)];
 }
 
 @utility brutal-button-secondary {
-  @apply px-6 py-3 bg-card text-foreground font-bold border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] 
-         transition-all duration-200 hover:bg-secondary hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_var(--color-border)]
-         active:translate-y-0 active:translate-x-0 active:shadow-[0_0_0_0_var(--color-border)];
+  @apply px-6 py-3 bg-card text-foreground font-bold border-2 border-border shadow-[4px_4px_0_0_var(--border-color)] 
+         transition-all duration-200 hover:bg-secondary hover:-translate-y-1 hover:-translate-x-1 hover:shadow-[6px_6px_0_0_var(--border-color)]
+         active:translate-y-0 active:translate-x-0 active:shadow-[0_0_0_0_var(--border-color)];
 }
 
 @utility brutal-badge {
-  @apply px-3 py-1 text-xs font-mono font-bold uppercase border-2 border-border bg-secondary text-secondary-foreground shadow-[2px_2px_0_0_var(--color-border)];
+  @apply px-3 py-1 text-xs font-mono font-bold uppercase border-2 border-border bg-secondary text-secondary-foreground shadow-[2px_2px_0_0_var(--border-color)];
 }
 
 @utility brutal-input {
-  @apply w-full px-4 py-3 bg-card border-2 border-border focus:outline-none focus:ring-0 focus:shadow-[4px_4px_0_0_var(--color-primary)] transition-shadow;
+  @apply w-full px-4 py-3 bg-card text-foreground border-2 border-border focus:outline-none focus:ring-0 focus:shadow-[4px_4px_0_0_var(--primary-color)] transition-shadow;
 }
 
 #root {

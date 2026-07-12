@@ -72,7 +72,7 @@ export const SkillsSection = () => {
     <section id="skills" className="py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row gap-8 items-start mb-12">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_#000] inline-block">
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
             Tech_Stack
           </h2>
           <p className="md:w-1/2 text-lg font-mono font-medium md:mt-4">
@@ -91,7 +91,7 @@ export const SkillsSection = () => {
                 className={`flex items-center gap-4 w-full p-4 border-2 border-border font-bold uppercase transition-all duration-200 text-left
                   ${
                     activeCategory === skillGroup.category
-                      ? "bg-primary text-primary-foreground shadow-[4px_4px_0_0_#000] translate-x-1"
+                      ? "bg-primary text-primary-foreground shadow-[4px_4px_0_0_var(--color-border)] translate-x-1"
                       : "bg-card text-foreground hover:bg-secondary hover:text-secondary-foreground"
                   }`}
               >
@@ -111,7 +111,7 @@ export const SkillsSection = () => {
                 }`}
               >
                 <div className="flex items-center gap-4 mb-8 border-b-4 border-border pb-4">
-                  <div className="p-2 bg-primary text-primary-foreground border-2 border-border shadow-[2px_2px_0_0_#000]">
+                  <div className="p-2 bg-primary text-primary-foreground border-2 border-border shadow-[2px_2px_0_0_var(--color-border)]">
                     {skillGroup.icon}
                   </div>
                   <h3 className="text-3xl font-black uppercase">
@@ -132,7 +132,7 @@ export const SkillsSection = () => {
                         <span className="font-bold uppercase tracking-wide">
                           {item.name}
                         </span>
-                        <span className="font-mono font-bold text-sm bg-primary text-primary-foreground px-2 py-0.5 border-2 border-border shadow-[2px_2px_0_0_#000]">
+                        <span className="font-mono font-bold text-sm bg-primary text-primary-foreground px-2 py-0.5 border-2 border-border shadow-[2px_2px_0_0_var(--color-border)]">
                           {item.level}%
                         </span>
                       </div>

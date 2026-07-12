@@ -45,7 +45,7 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-24 px-4 bg-secondary/10 border-y-4 border-border">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-card text-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_#000] inline-block">
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-card text-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
             Featured_Work
           </h2>
           <a href="https://github.com/Karannshah1" target="_blank" rel="noreferrer" className="brutal-button-secondary flex items-center gap-2">
@@ -80,7 +80,7 @@ export const ProjectsSection = () => {
                   {project.github && (
                     <a
                       href={project.github}
-                      className="p-2 bg-card border-2 border-border shadow-[4px_4px_0_0_#000] text-foreground hover:bg-primary hover:text-primary-foreground hover:translate-y-[-2px] transition-all"
+                      className="p-2 bg-card border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] text-foreground hover:bg-primary hover:text-primary-foreground hover:translate-y-[-2px] transition-all"
                       aria-label="GitHub Repository"
                     >
                       <Github size={20} />
@@ -89,7 +89,7 @@ export const ProjectsSection = () => {
                   {project.demo && (
                     <a
                       href={project.demo}
-                      className="p-2 bg-card border-2 border-border shadow-[4px_4px_0_0_#000] text-foreground hover:bg-primary hover:text-primary-foreground hover:translate-y-[-2px] transition-all"
+                      className="p-2 bg-card border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] text-foreground hover:bg-primary hover:text-primary-foreground hover:translate-y-[-2px] transition-all"
                       aria-label="Live Demo"
                     >
                       <ExternalLink size={20} />

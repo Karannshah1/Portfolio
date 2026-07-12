@@ -47,7 +47,7 @@ export const BlogPost = () => {
           <ArrowLeft size={16} /> RETURN_TO_BASE
         </Link>
 
-        <article className="brutal-card p-8 md:p-16 prose prose-lg prose-h1:text-4xl prose-h1:font-black prose-h1:uppercase prose-h2:font-black prose-h2:uppercase prose-h2:border-b-4 prose-h2:border-border prose-h2:pb-2 prose-code:bg-secondary/20 prose-code:px-1 prose-pre:bg-card prose-pre:border-2 prose-pre:border-border prose-pre:shadow-[4px_4px_0_0_#000] prose-pre:text-foreground prose-a:text-primary max-w-none">
+        <article className="brutal-card p-8 md:p-16 prose prose-lg prose-h1:text-4xl prose-h1:font-black prose-h1:uppercase prose-h2:font-black prose-h2:uppercase prose-h2:border-b-4 prose-h2:border-border prose-h2:pb-2 prose-code:bg-secondary/20 prose-code:px-1 prose-pre:bg-card prose-pre:border-2 prose-pre:border-border prose-pre:shadow-[4px_4px_0_0_var(--color-border)] prose-pre:text-foreground prose-a:text-primary max-w-none">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
             {content}
           </ReactMarkdown>

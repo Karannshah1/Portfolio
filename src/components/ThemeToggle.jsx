@@ -1,46 +1,31 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
-import { cn } from "@/lib/utils";
 
 export const ThemeToggle = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [theme, setTheme] = useState(
+    localStorage.getItem("theme") || "light"
+  );
 
   useEffect(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
-      setIsDarkMode(true);
+    if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
+      document.documentElement.classList.remove("dark");
     }
-  }, []);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDarkMode(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDarkMode(true);
-    }
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (
     <button
       onClick={toggleTheme}
-      className={cn(
-        "fixed top-5 right-5 z-50 p-1 rounded-full transition-colors duration-300",
-        "focus:outlin-hidden"
-      )}
+      className="p-2 border-2 border-border bg-card text-foreground shadow-[2px_2px_0_0_var(--color-border)] hover:bg-primary hover:text-primary-foreground hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0_0_var(--color-border)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
+      aria-label="Toggle theme"
     >
-      {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
-      ) : (
-        <Moon className="h-6 w-6 text-blue-900" />
-      )}
+      {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
     </button>
   );
 };

@@ -39,7 +39,7 @@ export const ContactSection = () => {
     <section id="contact" className="py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-secondary text-secondary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_#000] inline-block">
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-secondary text-secondary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
             Initialize_Contact
           </h2>
         </div>
@@ -58,7 +58,7 @@ export const ContactSection = () => {
 
             <div className="flex flex-col gap-6">
               <div className="brutal-card p-4 flex items-center gap-4 hover:-translate-y-1 transition-transform">
-                <div className="p-3 bg-primary text-primary-foreground border-2 border-border shadow-[2px_2px_0_0_#000]">
+                <div className="p-3 bg-primary text-primary-foreground border-2 border-border shadow-[2px_2px_0_0_var(--color-border)]">
                   <Mail className="h-6 w-6" />
                 </div>
                 <div>
@@ -70,7 +70,7 @@ export const ContactSection = () => {
               </div>
 
               <div className="brutal-card p-4 flex items-center gap-4 hover:-translate-y-1 transition-transform">
-                <div className="p-3 bg-secondary text-secondary-foreground border-2 border-border shadow-[2px_2px_0_0_#000]">
+                <div className="p-3 bg-secondary text-secondary-foreground border-2 border-border shadow-[2px_2px_0_0_var(--color-border)]">
                   <Phone className="h-6 w-6" />
                 </div>
                 <div>
@@ -82,7 +82,7 @@ export const ContactSection = () => {
               </div>
 
               <div className="brutal-card p-4 flex items-center gap-4 hover:-translate-y-1 transition-transform">
-                <div className="p-3 bg-card text-foreground border-2 border-border shadow-[2px_2px_0_0_#000]">
+                <div className="p-3 bg-card text-foreground border-2 border-border shadow-[2px_2px_0_0_var(--color-border)]">
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
@@ -95,10 +95,10 @@ export const ContactSection = () => {
             <div className="pt-8 border-t-4 border-border">
               <h4 className="font-bold uppercase mb-4">External_Nodes</h4>
               <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/in/karanshaah/" target="_blank" rel="noreferrer" className="p-4 bg-primary text-primary-foreground border-2 border-border shadow-[4px_4px_0_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_#000] transition-all">
+                <a href="https://www.linkedin.com/in/karanshaah/" target="_blank" rel="noreferrer" className="p-4 bg-primary text-primary-foreground border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_var(--color-border)] transition-all">
                   <Linkedin size={24} />
                 </a>
-                <a href="https://github.com/Karannshah1/" target="_blank" rel="noreferrer" className="p-4 bg-card text-foreground border-2 border-border shadow-[4px_4px_0_0_#000] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_#000] transition-all">
+                <a href="https://github.com/Karannshah1/" target="_blank" rel="noreferrer" className="p-4 bg-card text-foreground border-2 border-border shadow-[4px_4px_0_0_var(--color-border)] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_var(--color-border)] transition-all">
                   <Github size={24} />
                 </a>
               </div>
