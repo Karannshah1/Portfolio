@@ -72,7 +72,7 @@ export const HeroSection = () => {
                   [React, Java, Spring boot, Kafka, PostgreSQL]
                 </div>
                 <div className="text-right">
-                  <span className="bg-primary text-white font-black text-6xl px-2 py-1 border-3 border-border">1000+</span>
+                  <span className="bg-primary text-white font-black text-6xl px-2 py-0 border-3 border-border">1000+</span>
                   <p className="font-mono font-bold mt-2 uppercase">DSA Problems Solved</p>
                 </div>
             </div>
