@@ -63,7 +63,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative hidden lg:block"
           >
-            <div className="aspect-square bg-secondary border-4 border-border shadow-[16px_16px_0_0_var(--color-border)] relative z-10 overflow-hidden group p-8 flex flex-col justify-between">
+            <div className="aspect-square bg-secondary text-secondary-foreground border-4 border-border shadow-[16px_16px_0_0_var(--color-border)] relative z-10 overflow-hidden group p-8 flex flex-col justify-between">
                 <div className="font-mono text-2xl font-bold">
                   {">"} whoami<br/>
                   Karan_Shah<br/>

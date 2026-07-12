@@ -54,7 +54,7 @@ export const BlogSection = () => {
               <Link to={`/blog/${blog.slug}`} className="block h-full">
                 <article className="brutal-card brutal-card-hover h-full flex flex-col bg-card p-6">
                   <div className="flex justify-between items-start mb-6 border-b-4 border-border pb-4">
-                    <div className="p-3 bg-secondary border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
+                    <div className="p-3 bg-secondary text-secondary-foreground border-2 border-border shadow-[4px_4px_0_0_var(--color-border)]">
                       <BookOpen size={24} />
                     </div>
                     <span className="font-mono font-bold text-sm bg-primary text-primary-foreground px-2 py-1 border-2 border-border">
