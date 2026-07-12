@@ -40,7 +40,7 @@
     --card-color: #1a1a1a;
     --primary-color: #00f0ff; /* Neon Cyan */
     --primary-fg: #000000;
-    --secondary-color: #ff00ff; /* Cyberpunk Magenta instead of Yellow */
+    --secondary-color: #ff0; /* Cyberpunk Magenta instead of Yellow */
     --secondary-fg: #000000;
     --border-color: #262626; /* Dark gray for brutalist shadows instead of white */
     --muted-color: #262626;
