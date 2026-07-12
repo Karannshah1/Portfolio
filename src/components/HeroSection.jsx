@@ -1,4 +1,5 @@
 import { ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   return (
@@ -8,36 +9,52 @@ export const HeroSection = () => {
     >
       <div className="container max-w-4xl mx-auto text-center z-10">
         <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in"> Hi, I'm</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
-              {" "}
-              Karan
-            </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
-              {" "}
-              Shah
-            </span>
-          </h1>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="text-5xl md:text-7xl font-bold tracking-tight"
+          >
+            Hi, I'm
+            <span className="text-primary ml-3">Karan</span>
+            <span className="text-gradient ml-3">Shah</span>
+          </motion.h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            I create stellar web experiences with modern technologies.
-            Specializing in fullstack development, I build application that are
-            beautiful, robutest and functional.
-          </p>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+          >
+            A passionate Full Stack Engineer and Machine Learning enthusiast. 
+            I architect robust, scalable systems and build intelligent applications that solve complex real-world problems.
+          </motion.p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="pt-8 flex justify-center gap-6"
+          >
             <a href="#projects" className="cosmic-button">
               View My Work
             </a>
-          </div>
+            <a href="#contact" className="px-6 py-2 rounded-full border border-primary text-primary font-semibold hover:bg-primary/10 transition-all duration-300">
+              Let's Talk
+            </a>
+          </motion.div>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2"> Scroll </span>
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce cursor-pointer"
+      >
+        <span className="text-sm text-muted-foreground mb-2 font-medium tracking-wider uppercase text-[10px]">Scroll Down</span>
         <ArrowDown className="h-5 w-5 text-primary" />
-      </div>
+      </motion.div>
     </section>
   );
 };

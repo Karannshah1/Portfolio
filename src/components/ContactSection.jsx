@@ -1,18 +1,15 @@
-
 import {
   Github,
-  Instagram,
   Linkedin,
   Mail,
   MapPin,
   Phone,
   Send,
-  Twitch,
-  Twitter,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -29,100 +26,123 @@ export const ContactSection = () => {
         description: "Thank you for your message. I'll get back to you soon.",
       });
       setIsSubmitting(false);
+      e.target.reset();
     }, 1500);
   };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  };
+
   return (
-    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
-      <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          Get In <span className="text-primary"> Touch</span>
-        </h2>
+    <section id="contact" className="py-32 px-4 relative">
+      <div className="container mx-auto max-w-6xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            Get In <span className="text-primary">Touch</span>
+          </h2>
+          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Have a project in mind or want to collaborate? Feel free to reach out. I'm always open to discussing new opportunities.
+          </p>
+        </motion.div>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
-        </p>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="space-y-8"
+          >
+            <motion.h3 variants={itemVariants} className="text-3xl font-semibold mb-6">
+              Let's Connect
+            </motion.h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
-              {" "}
-              Contact Information
-            </h3>
-
-            <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />{" "}
+            <div className="space-y-6">
+              <motion.div variants={itemVariants} className="flex items-center space-x-5 group">
+                <div className="p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Email</h4>
+                  <h4 className="font-medium text-lg text-foreground mb-1">Email</h4>
                   <a
                     href="mailto:karannshah13@gmail.com"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    className="text-muted-foreground hover:text-primary transition-colors text-base"
                   >
                     karannshah13@gmail.com
                   </a>
                 </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
+              </motion.div>
+              
+              <motion.div variants={itemVariants} className="flex items-center space-x-5 group">
+                <div className="p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Phone</h4>
+                  <h4 className="font-medium text-lg text-foreground mb-1">Phone</h4>
                   <a
-                    href="tel:+9106926865"
-                    className="text-muted-foreground hover:text-primary transition-colors"
+                    href="tel:+919106926865"
+                    className="text-muted-foreground hover:text-primary transition-colors text-base"
                   >
-                    +91 (910) 692-6865
+                    +91 910 692-6865
                   </a>
                 </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
+              </motion.div>
+              
+              <motion.div variants={itemVariants} className="flex items-center space-x-5 group">
+                <div className="p-4 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                  <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
+                  <h4 className="font-medium text-lg text-foreground mb-1">Location</h4>
+                  <p className="text-muted-foreground text-base">
                     Ahmedabad, Gujarat, India
-                  </a>
+                  </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
-                <a href="https://www.linkedin.com/in/karanshaah/" target="_blank">
-                  <Linkedin />
+            <motion.div variants={itemVariants} className="pt-8 border-t border-border/50">
+              <h4 className="font-medium mb-6 text-lg">Social Profiles</h4>
+              <div className="flex space-x-4">
+                <a href="https://www.linkedin.com/in/karanshaah/" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                  <Linkedin size={20} />
                 </a>
-                {/* <a href="#" target="_blank">
-                  <Twitter />
+                <a href="https://github.com/Karannshah1/" target="_blank" rel="noreferrer" className="p-3 rounded-full bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                  <Github size={20} />
                 </a>
-                <a href="#" target="_blank">
-                  <Instagram />
-                </a> */}
-               
-                
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div
-            className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="glass-card p-8 md:p-10 rounded-2xl"
           >
-            <h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
+            <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="name" className="block text-sm font-medium mb-2 text-foreground/80">
                   Your Name
                 </label>
                 <input
@@ -130,17 +150,13 @@ export const ContactSection = () => {
                   id="name"
                   name="name"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="Karan Shah..."
+                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-background/50 focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="email" className="block text-sm font-medium mb-2 text-foreground/80">
                   Your Email
                 </label>
                 <input
@@ -148,25 +164,22 @@ export const ContactSection = () => {
                   id="email"
                   name="email"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary"
-                  placeholder="karan@gmail.com"
+                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-background/50 focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+                  placeholder="john@example.com"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
-                  {" "}
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground/80">
                   Your Message
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
-                  className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden foucs:ring-2 focus:ring-primary resize-none"
-                  placeholder="Hello, I'd like to talk about..."
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-xl border border-white/10 bg-background/50 focus:outline-hidden focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
+                  placeholder="How can I help you?"
                 />
               </div>
 
@@ -174,14 +187,14 @@ export const ContactSection = () => {
                 type="submit"
                 disabled={isSubmitting}
                 className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
+                  "cosmic-button w-full flex items-center justify-center gap-2 mt-4"
                 )}
               >
                 {isSubmitting ? "Sending..." : "Send Message"}
-                <Send size={16} />
+                <Send size={18} />
               </button>
             </form>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
