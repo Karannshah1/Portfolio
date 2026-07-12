@@ -1,115 +1,100 @@
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
-import { ThemeToggle } from "./ThemeToggle";
-
-const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Blog", href: "#blog" },
-  { name: "Contact", href: "#contact" },
-];
+import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.screenY > 10);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { name: "About", href: "/#about" },
+    { name: "Skills", href: "/#skills" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Blog", href: "/#blog" },
+    { name: "Contact", href: "/#contact" },
+  ];
+
   return (
-    <nav
+    <header
       className={cn(
-        "fixed w-full z-40 transition-all duration-300",
-        isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+        "fixed top-0 w-full z-50 transition-all duration-200 border-b-4 border-border",
+        isScrolled
+          ? "bg-background py-3"
+          : "bg-background py-5"
       )}
     >
-
-    
-
-      <div className="container flex items-center justify-between">
+      <div className="container mx-auto max-w-6xl flex justify-between items-center px-4">
         <a
-          className="text-xl font-bold text-primary flex items-center"
-          href="#hero"
+          href="/"
+          className="text-2xl font-black tracking-tighter"
         >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground"> Karan Shah</span>{" "}
-            Portfolio
-          </span>
+          KARAN<span className="text-primary">.DEV</span>
         </a>
 
-        {/* desktop nav */}
-        <div className="hidden md:flex space-x-8">
-          {navItems.map((item, key) => (
+        {/* Desktop Navigation */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
             <a
-              key={key}
-              href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              key={link.name}
+              href={link.href}
+              className="text-sm font-bold uppercase tracking-wider hover:text-primary transition-colors relative group"
             >
-              {item.name}
+              {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-1 bg-primary transition-all duration-200 group-hover:w-full"></span>
             </a>
           ))}
-        </div>
-        
-        {/* <div className="flex items-center space-x-4">
-          <ThemeToggle />
-        </div> */}
-
-        {/* mobile nav */}
-
-       
-
-       
-          <div className="flex items-center space-x-4">
-            <div className="max-sm:hidden">
-          <ThemeToggle />
-          </div>
-          <button
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="md:hidden p-2 text-foreground z-50"
-            aria-label={isMenuOpen ? "Close Menu" : "Open Menu"}
+          
+          <a
+            href="/#contact"
+            className="brutal-button !py-2 !px-4 text-sm"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
+            Hire Me
+          </a>
+        </nav>
 
-        
-        
-
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
+        {/* Mobile Menu Button */}
+        <button
+          className="md:hidden border-2 border-border p-1 bg-secondary text-secondary-foreground shadow-[2px_2px_0_0_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          <div className="flex flex-col space-y-8 text-xl">
-            {navItems.map((item, key) => (
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-background border-b-4 border-border p-4 shadow-[0_4px_0_0_#000]">
+          <nav className="flex flex-col space-y-4">
+            {navLinks.map((link) => (
               <a
-                key={key}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
+                key={link.name}
+                href={link.href}
+                className="text-lg font-bold uppercase py-2 border-b-2 border-border/20 hover:text-primary hover:pl-4 transition-all"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item.name}
+                {link.name}
               </a>
             ))}
-            <ThemeToggle />
-          </div>
+            <a
+              href="/#contact"
+              className="brutal-button text-center w-full mt-4"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Hire Me
+            </a>
+          </nav>
         </div>
-      </div>
-    </nav>
+      )}
+    </header>
   );
 };
-
-
-

@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@radix-ui/react-toast": "^1.2.13",
+    "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.1.7",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -20,7 +22,9 @@
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.6.0",
+    "remark-gfm": "^4.0.1",
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.7",
     "twitch": "^4.6.7",

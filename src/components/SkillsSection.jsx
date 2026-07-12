@@ -1,109 +1,156 @@
 import { useState } from "react";
-import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { Code2, Database, Layout, PenTool, Server, Brain } from "lucide-react";
+import { motion } from "framer-motion";
 
 const skills = [
-  // Languages
-  { name: "C++", level: 90, category: "languages" },
-  { name: "Python", level: 85, category: "languages" },
-  { name: "Java", level: 85, category: "languages" },
-
-  // Frontend
-  { name: "React", level: 85, category: "frontend" },
-  { name: "JavaScript", level: 85, category: "frontend" },
-  { name: "HTML/CSS", level: 90, category: "frontend" },
-  { name: "Tailwind CSS", level: 90, category: "frontend" },
-
-  // Backend
-  { name: "Spring Boot", level: 85, category: "backend" },
-  { name: "SQL", level: 85, category: "backend" },
-  { name: "MongoDB", level: 75, category: "backend" },
-  { name: "PostgreSQL", level: 70, category: "backend" },
-
-  // Machine Learning
-  { name: "Machine Learning (SVM, Decision Trees)", level: 85, category: "ml" },
-  { name: "NLP (NLTK)", level: 80, category: "ml" },
-  { name: "BERT Transformer", level: 75, category: "ml" },
-  { name: "Scikit-learn", level: 80, category: "ml" },
-
-  // Tools
-  { name: "Git/GitHub", level: 90, category: "tools" },
-  { name: "VS Code / IntelliJ", level: 95, category: "tools" },
+  {
+    category: "Languages",
+    icon: <Code2 className="w-5 h-5" />,
+    items: [
+      { name: "Java", level: 90 },
+      { name: "C++", level: 85 },
+      { name: "JavaScript / TypeScript", level: 90 },
+      { name: "Python", level: 80 },
+    ],
+  },
+  {
+    category: "Frontend",
+    icon: <Layout className="w-5 h-5" />,
+    items: [
+      { name: "React", level: 90 },
+      { name: "Next.js", level: 80 },
+      { name: "Tailwind CSS", level: 85 },
+      { name: "HTML / CSS", level: 95 },
+    ],
+  },
+  {
+    category: "Backend",
+    icon: <Server className="w-5 h-5" />,
+    items: [
+      { name: "Spring Boot", level: 85 },
+      { name: "Node.js / Express", level: 80 },
+      { name: "REST APIs", level: 90 },
+      { name: "GraphQL", level: 70 },
+    ],
+  },
+  {
+    category: "Database & Cloud",
+    icon: <Database className="w-5 h-5" />,
+    items: [
+      { name: "MySQL / PostgreSQL", level: 85 },
+      { name: "MongoDB", level: 80 },
+      { name: "AWS", level: 75 },
+      { name: "Docker", level: 70 },
+    ],
+  },
+  {
+    category: "Machine Learning",
+    icon: <Brain className="w-5 h-5" />,
+    items: [
+      { name: "PyTorch", level: 80 },
+      { name: "Transformers (BERT)", level: 85 },
+      { name: "Scikit-Learn", level: 75 },
+      { name: "NLP", level: 80 },
+    ],
+  },
+  {
+    category: "Tools & Others",
+    icon: <PenTool className="w-5 h-5" />,
+    items: [
+      { name: "Git & GitHub", level: 90 },
+      { name: "Postman", level: 85 },
+      { name: "Linux", level: 80 },
+      { name: "CI/CD", level: 75 },
+    ],
+  },
 ];
 
-const categories = ["all", "languages", "frontend", "backend", "ml", "tools"];
-
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
-  );
+  const [activeCategory, setActiveCategory] = useState("Languages");
 
   return (
-    <section id="skills" className="py-24 px-4 relative bg-background/50">
-      <div className="container mx-auto max-w-5xl">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-primary">Skills</span>
+    <section id="skills" className="py-24 px-4 bg-background">
+      <div className="container mx-auto max-w-6xl">
+        <div className="flex flex-col md:flex-row gap-8 items-start mb-12">
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_#000] inline-block">
+            Tech_Stack
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-8"></div>
-        </motion.div>
-
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category, key) => (
-            <button
-              key={key}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                "px-6 py-2 rounded-full font-medium transition-all duration-300 capitalize",
-                activeCategory === category
-                  ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(34,211,238,0.4)]"
-                  : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"
-              )}
-            >
-              {category === "ml" ? "Machine Learning" : category}
-            </button>
-          ))}
+          <p className="md:w-1/2 text-lg font-mono font-medium md:mt-4">
+            A comprehensive overview of the tools, languages, and frameworks I use to build scalable systems.
+          </p>
         </div>
 
-        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <AnimatePresence>
-            {filteredSkills.map((skill, key) => (
-              <motion.div
-                key={skill.name}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="glass-card p-6 rounded-xl"
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          {/* Categories Sidebar */}
+          <div className="lg:col-span-4 flex flex-col gap-2">
+            {skills.map((skillGroup) => (
+              <button
+                key={skillGroup.category}
+                onClick={() => setActiveCategory(skillGroup.category)}
+                className={`flex items-center gap-4 w-full p-4 border-2 border-border font-bold uppercase transition-all duration-200 text-left
+                  ${
+                    activeCategory === skillGroup.category
+                      ? "bg-primary text-primary-foreground shadow-[4px_4px_0_0_#000] translate-x-1"
+                      : "bg-card text-foreground hover:bg-secondary hover:text-secondary-foreground"
+                  }`}
               >
-                <div className="flex justify-between items-end mb-3">
-                  <h3 className="font-semibold text-lg text-foreground">{skill.name}</h3>
-                  <span className="text-sm font-medium text-primary">
-                    {skill.level}%
-                  </span>
-                </div>
-                <div className="w-full bg-secondary/50 h-2.5 rounded-full overflow-hidden border border-white/5">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${skill.level}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1, ease: "easeOut" }}
-                    className="h-full rounded-full bg-linear-to-r from-primary/80 to-primary"
-                  />
-                </div>
-              </motion.div>
+                {skillGroup.icon}
+                {skillGroup.category}
+              </button>
             ))}
-          </AnimatePresence>
-        </motion.div>
+          </div>
+
+          {/* Skills Display Area */}
+          <div className="lg:col-span-8 brutal-card p-8 bg-secondary/10">
+            {skills.map((skillGroup) => (
+              <div
+                key={skillGroup.category}
+                className={`${
+                  activeCategory === skillGroup.category ? "block" : "hidden"
+                }`}
+              >
+                <div className="flex items-center gap-4 mb-8 border-b-4 border-border pb-4">
+                  <div className="p-2 bg-primary text-primary-foreground border-2 border-border shadow-[2px_2px_0_0_#000]">
+                    {skillGroup.icon}
+                  </div>
+                  <h3 className="text-3xl font-black uppercase">
+                    {skillGroup.category}
+                  </h3>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-6">
+                  {skillGroup.items.map((item, index) => (
+                    <motion.div
+                      key={item.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="space-y-2"
+                    >
+                      <div className="flex justify-between items-end">
+                        <span className="font-bold uppercase tracking-wide">
+                          {item.name}
+                        </span>
+                        <span className="font-mono font-bold text-sm bg-primary text-primary-foreground px-2 py-0.5 border-2 border-border shadow-[2px_2px_0_0_#000]">
+                          {item.level}%
+                        </span>
+                      </div>
+                      <div className="h-4 w-full bg-card border-2 border-border">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${item.level}%` }}
+                          transition={{ duration: 1, delay: 0.2 }}
+                          className="h-full bg-primary border-r-2 border-border"
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

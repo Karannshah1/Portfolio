@@ -1,60 +1,87 @@
-import { ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center px-4"
+      className="pt-32 pb-24 px-4 min-h-[90vh] flex items-center relative overflow-hidden bg-background"
     >
-      <div className="container max-w-4xl mx-auto text-center z-10">
-        <div className="space-y-6">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="text-5xl md:text-7xl font-bold tracking-tight"
-          >
-            Hi, I'm
-            <span className="text-primary ml-3">Karan</span>
-            <span className="text-gradient ml-3">Shah</span>
-          </motion.h1>
+      {/* Decorative Grid Background - Brutalist touch */}
+      <div className="absolute inset-0 z-0 pointer-events-none opacity-20" 
+           style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '50px 50px' }}>
+      </div>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, type: "spring", stiffness: 100 }}
+            className="space-y-8"
           >
-            A passionate Full Stack Engineer and Machine Learning enthusiast. 
-            I architect robust, scalable systems and build intelligent applications that solve complex real-world problems.
-          </motion.p>
+            <div className="inline-block brutal-badge">
+              Software Engineer
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-black uppercase leading-[1.1] tracking-tight">
+              Building <br/>
+              <span className="bg-primary text-primary-foreground px-2">Systems</span> &<br/>
+              Algorithms
+            </h1>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
+            <p className="text-xl md:text-2xl text-foreground font-mono font-medium max-w-lg">
+              I'm Karan Shah, a Full Stack & ML Engineer.
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              <a href="#projects" className="brutal-button flex items-center gap-2">
+                View Work <FileText size={18} />
+              </a>
+              <a href="#contact" className="brutal-button-secondary">
+                Contact Me
+              </a>
+            </div>
+
+            <div className="flex items-center gap-6 pt-8 border-t-4 border-border w-max">
+              <a href="https://github.com/Karannshah1" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary transition-colors hover:-translate-y-1 transform duration-200">
+                <Github size={32} strokeWidth={2.5} />
+              </a>
+              <a href="https://linkedin.com/in/karanshaah" target="_blank" rel="noreferrer" className="text-foreground hover:text-primary transition-colors hover:-translate-y-1 transform duration-200">
+                <Linkedin size={32} strokeWidth={2.5} />
+              </a>
+              <a href="mailto:karannshah13@gmail.com" className="text-foreground hover:text-primary transition-colors hover:-translate-y-1 transform duration-200">
+                <Mail size={32} strokeWidth={2.5} />
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="pt-8 flex justify-center gap-6"
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative hidden lg:block"
           >
-            <a href="#projects" className="cosmic-button">
-              View My Work
-            </a>
-            <a href="#contact" className="px-6 py-2 rounded-full border border-primary text-primary font-semibold hover:bg-primary/10 transition-all duration-300">
-              Let's Talk
-            </a>
+            <div className="aspect-square bg-secondary border-4 border-border shadow-[16px_16px_0_0_#000] relative z-10 overflow-hidden group p-8 flex flex-col justify-between">
+                <div className="font-mono text-2xl font-bold">
+                  {">"} whoami<br/>
+                  Karan_Shah<br/>
+                  <br/>
+                  {">"} skills<br/>
+                  [React, Node, PyTorch, C++]
+                </div>
+                <div className="text-right">
+                  <span className="bg-primary text-white font-black text-6xl px-4 py-2 border-4 border-border">1000+</span>
+                  <p className="font-mono font-bold mt-2 uppercase">DSA Problems Solved</p>
+                </div>
+            </div>
+            {/* Decorative Brutalist Elements */}
+            <div className="absolute -bottom-8 -right-8 w-24 h-24 bg-primary border-4 border-border shadow-[8px_8px_0_0_#000] rounded-full z-0"></div>
+            <div className="absolute -top-8 -left-8 w-32 h-8 bg-card border-4 border-border shadow-[4px_4px_0_0_#000] z-20 transform -rotate-12 flex items-center justify-center font-black">HELLO_WORLD</div>
           </motion.div>
         </div>
       </div>
-
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce cursor-pointer"
-      >
-        <span className="text-sm text-muted-foreground mb-2 font-medium tracking-wider uppercase text-[10px]">Scroll Down</span>
-        <ArrowDown className="h-5 w-5 text-primary" />
-      </motion.div>
     </section>
   );
 };

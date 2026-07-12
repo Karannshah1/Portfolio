@@ -1,120 +1,78 @@
-import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const blogs = [
   {
-    id: 1,
-    title: "Understanding BERT for Semantic Search",
-    excerpt: "How I leveraged BERT transformers to build a semantic search engine for fashion items that understands context better than keyword matching.",
-    date: "May 12, 2024",
-    readTime: "5 min read",
-    category: "Machine Learning",
-    url: "#"
+    title: "Building a Semantic Search Engine with BERT",
+    excerpt: "Explore how we moved beyond keyword search using transformers and vector databases.",
+    date: "April 15, 2026",
+    slug: "semantic-search-bert"
   },
   {
-    id: 2,
     title: "Optimizing Network Paths with Dinic's Algorithm",
-    excerpt: "A deep dive into how I used Dinic's algorithm alongside Dijkstra's to create a highly efficient network routing solution in C++.",
-    date: "April 28, 2024",
-    readTime: "7 min read",
-    category: "Algorithms",
-    url: "#"
+    excerpt: "A deep dive into maximum flow problems and optimizing routing for simulated logistics.",
+    date: "March 02, 2026",
+    slug: "dinics-algorithm-routing"
   },
   {
-    id: 3,
-    title: "Building Scalable Backends with Spring Boot",
-    excerpt: "Best practices and architectural patterns for creating robust and maintainable enterprise backends using Java and Spring Boot.",
-    date: "March 15, 2024",
-    readTime: "6 min read",
-    category: "Backend Dev",
-    url: "#"
+    title: "Microservices with Spring Boot",
+    excerpt: "Transitioning from monolithic architectures and managing distributed complexity.",
+    date: "January 20, 2026",
+    slug: "spring-boot-microservices"
   }
 ];
 
 export const BlogSection = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.2 }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
-  };
-
   return (
-    <section id="blog" className="py-24 px-4 relative bg-secondary/20">
+    <section id="blog" className="py-24 px-4 bg-background border-t-4 border-border">
       <div className="container mx-auto max-w-6xl">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Latest <span className="text-primary">Articles</span>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_#000] inline-block">
+            Tech_Log
           </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Insights, tutorials, and deep dives into software engineering, machine learning, and system design.
+          <p className="font-mono text-lg font-bold md:w-1/3 text-right">
+            Insights, architecture breakdowns, and algorithm explorations.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {blogs.map((blog) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {blogs.map((blog, index) => (
             <motion.div
-              variants={cardVariants}
-              key={blog.id}
-              className="group glass-card p-8 rounded-2xl flex flex-col h-full hover:border-primary/50 transition-colors"
+              key={blog.slug}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
             >
-              <div className="mb-6">
-                <span className="px-3 py-1 text-xs font-semibold rounded-full bg-primary/10 text-primary">
-                  {blog.category}
-                </span>
-              </div>
-              
-              <h3 className="text-xl font-bold mb-3 text-foreground group-hover:text-primary transition-colors leading-tight">
-                {blog.title}
-              </h3>
-              
-              <p className="text-muted-foreground text-base mb-6 flex-grow leading-relaxed">
-                {blog.excerpt}
-              </p>
-              
-              <div className="flex items-center justify-between text-sm text-muted-foreground pt-4 border-t border-border/50">
-                <div className="flex items-center gap-4">
-                  <span className="flex items-center gap-1.5"><Calendar size={14} /> {blog.date}</span>
-                  <span className="flex items-center gap-1.5"><Clock size={14} /> {blog.readTime}</span>
-                </div>
-              </div>
+              <Link to={`/blog/${blog.slug}`} className="block h-full">
+                <article className="brutal-card brutal-card-hover h-full flex flex-col bg-card p-6">
+                  <div className="flex justify-between items-start mb-6 border-b-4 border-border pb-4">
+                    <div className="p-3 bg-secondary border-2 border-border shadow-[4px_4px_0_0_#000]">
+                      <BookOpen size={24} />
+                    </div>
+                    <span className="font-mono font-bold text-sm bg-primary text-primary-foreground px-2 py-1 border-2 border-border">
+                      {blog.date}
+                    </span>
+                  </div>
+                  
+                  <h3 className="text-2xl font-black uppercase mb-4 leading-tight group-hover:text-primary transition-colors">
+                    {blog.title}
+                  </h3>
+                  
+                  <p className="text-foreground/80 font-mono text-sm leading-relaxed mb-6 flex-grow">
+                    {blog.excerpt}
+                  </p>
+                  
+                  <div className="mt-auto flex items-center justify-between font-bold text-primary">
+                    <span className="uppercase">Read_File</span>
+                    <ArrowRight size={20} className="transform transition-transform group-hover:translate-x-2" />
+                  </div>
+                </article>
+              </Link>
             </motion.div>
           ))}
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-center mt-16"
-        >
-          <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2 text-lg"
-            href="#"
-          >
-            Read More on Medium <ArrowRight size={20} />
-          </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
