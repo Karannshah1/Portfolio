@@ -39,7 +39,7 @@ export const ContactSection = () => {
     <section id="contact" className="py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-secondary text-secondary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight bg-secondary text-secondary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
             Initialize_Contact
           </h2>
         </div>
@@ -52,7 +52,7 @@ export const ContactSection = () => {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h3 className="text-3xl font-black uppercase border-b-4 border-border pb-4 inline-block">
+            <h3 className="text-2xl sm:text-3xl font-black uppercase border-b-4 border-border pb-4 inline-block">
               Connection Details
             </h3>
 
@@ -110,9 +110,9 @@ export const ContactSection = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="brutal-card p-8 bg-secondary/10"
+            className="brutal-card p-4 sm:p-8 bg-secondary/10 mt-8 lg:mt-0"
           >
-            <h3 className="text-3xl font-black uppercase mb-8 border-b-4 border-border pb-4 inline-block">
+            <h3 className="text-2xl sm:text-3xl font-black uppercase mb-8 border-b-4 border-border pb-4 inline-block">
               Transmit_Payload
             </h3>
 

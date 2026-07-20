@@ -6,7 +6,7 @@ export const AboutSection = () => {
     <section id="about" className="py-24 px-4 bg-secondary/10 border-y-4 border-border">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-16">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 inline-block bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight mb-4 inline-block bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)]">
             About_Me
           </h2>
         </div>
@@ -18,9 +18,9 @@ export const AboutSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-7 brutal-card p-8 flex flex-col justify-center"
+            className="md:col-span-7 brutal-card p-6 sm:p-8 flex flex-col justify-center"
           >
-            <h3 className="text-3xl font-black uppercase mb-6 border-b-4 border-border pb-4">
+            <h3 className="text-2xl sm:text-3xl font-black uppercase mb-6 border-b-4 border-border pb-4">
               Hello, World.
             </h3>
             <div className="space-y-4 text-lg font-mono font-medium">

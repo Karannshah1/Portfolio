@@ -45,7 +45,7 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-24 px-4 bg-secondary/10 border-y-4 border-border">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-card text-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight bg-card text-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
             Featured_Work
           </h2>
           <a href="https://github.com/Karannshah1" target="_blank" rel="noreferrer" className="brutal-button-secondary flex items-center gap-2">
@@ -53,7 +53,7 @@ export const ProjectsSection = () => {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -98,10 +98,10 @@ export const ProjectsSection = () => {
                 </div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
+              <div className="p-4 sm:p-6 flex flex-col flex-grow">
                 <div className="flex items-center gap-3 mb-4">
-                  <FolderGit2 className="text-primary w-6 h-6" />
-                  <h3 className="text-2xl font-black uppercase tracking-tight">
+                  <FolderGit2 className="text-primary w-6 h-6 shrink-0" />
+                  <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight">
                     {project.title}
                   </h3>
                 </div>

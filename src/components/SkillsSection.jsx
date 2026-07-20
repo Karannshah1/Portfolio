@@ -77,7 +77,7 @@ export const SkillsSection = () => {
     <section id="skills" className="py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row gap-8 items-start mb-12">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
             Tech_Stack
           </h2>
           <p className="md:w-1/2 text-lg font-mono font-medium md:mt-4">
@@ -88,12 +88,12 @@ export const SkillsSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* Categories Sidebar */}
-          <div className="lg:col-span-4 flex flex-col gap-2">
+          <div className="lg:col-span-4 grid grid-cols-2 sm:grid-cols-3 lg:flex lg:flex-col gap-2">
             {skills.map((skillGroup) => (
               <button
                 key={skillGroup.category}
                 onClick={() => setActiveCategory(skillGroup.category)}
-                className={`flex items-center gap-4 w-full p-4 border-2 border-border font-bold uppercase transition-all duration-200 text-left
+                className={`flex items-center justify-center lg:justify-start gap-2 sm:gap-4 w-full p-2 sm:p-4 border-2 border-border font-bold uppercase transition-all duration-200 text-center lg:text-left text-xs sm:text-sm
                   ${
                     activeCategory === skillGroup.category
                       ? "bg-primary text-primary-foreground shadow-[4px_4px_0_0_var(--color-border)] translate-x-1"
@@ -107,7 +107,7 @@ export const SkillsSection = () => {
           </div>
 
           {/* Skills Display Area */}
-          <div className="lg:col-span-8 brutal-card p-8 bg-secondary/10">
+          <div className="lg:col-span-8 brutal-card p-4 sm:p-8 bg-secondary/10 mt-4 lg:mt-0">
             {skills.map((skillGroup) => (
               <div
                 key={skillGroup.category}
@@ -119,7 +119,7 @@ export const SkillsSection = () => {
                   <div className="p-2 bg-zinc-800 text-zinc-100 border-2 border-border shadow-[2px_2px_0_0_var(--color-border)]">
                     {skillGroup.icon}
                   </div>
-                  <h3 className="text-3xl font-black uppercase">
+                  <h3 className="text-2xl sm:text-3xl font-black uppercase">
                     {skillGroup.category}
                   </h3>
                 </div>

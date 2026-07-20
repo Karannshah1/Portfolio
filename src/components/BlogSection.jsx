@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 
 const blogs = [
   {
+    title: "The JVM Tiered Compilation Death Spiral",
+    excerpt: "Stop auto-scaling on CPU during warm-up. Understanding JIT compilation mechanics.",
+    date: "July 21, 2026",
+    slug: "jvm-tiered-compilation-death-spiral"
+  },
+  {
     title: "The Physics of N+1 and Cartesian Explosions",
     excerpt: "Stop guessing about Hibernate performance and architect for physics.",
     date: "July 12, 2026",
@@ -33,11 +39,11 @@ export const BlogSection = () => {
   return (
     <section id="blog" className="py-24 px-4 bg-background border-t-4 border-border">
       <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-          <h2 className="text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 gap-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-4 border-border shadow-[8px_8px_0_0_var(--color-border)] inline-block">
             Tech_Log
           </h2>
-          <p className="font-mono text-lg font-bold md:w-1/3 text-right">
+          <p className="font-mono text-base sm:text-lg font-bold md:w-1/3 text-left md:text-right">
             Insights, architecture breakdowns, and algorithm explorations.
           </p>
         </div>
@@ -62,7 +68,7 @@ export const BlogSection = () => {
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl font-black uppercase mb-4 leading-tight group-hover:text-primary transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black uppercase mb-4 leading-tight group-hover:text-primary transition-colors">
                     {blog.title}
                   </h3>
                   
