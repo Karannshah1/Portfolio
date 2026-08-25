@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 
 const blogs = [
   {
+    title: "We Hit 3.2 Million Writes/sec on a Single JVM",
+    excerpt: "10 stages, real SQL, real database locks — how architecture beats hardware every time.",
+    date: "August 25, 2026",
+    slug: "jvm-32-million-writes-per-second"
+  },
+  {
     title: "The JVM Tiered Compilation Death Spiral",
     excerpt: "Stop auto-scaling on CPU during warm-up. Understanding JIT compilation mechanics.",
     date: "July 21, 2026",
